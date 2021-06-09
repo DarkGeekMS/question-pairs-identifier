@@ -61,7 +61,7 @@ For each question pair, absolute difference between number of words in questions
 5. **Word Count Ratio**
 For each question pair,
 - Word Count of both questions are calculated.
-- Ratio of Counts is calculated, `R = min_word_count / max_word_count`
+- Ratio of Counts is calculated, `R = min_word_count / max_word_count`.
 ![image](https://drive.google.com/uc?export=view&id=15sLwKbHN-cfSo_NfX2OaMCsH8XIpZuJW)
 
 6. **Unique Word Count Difference**
@@ -90,14 +90,14 @@ For each question pair,
 10. **Unique Word Count Ratio**
 For each question pair,
 - Unique Word Count of both questions are calculated.
-- Ratio of Counts is calculated, `R = min_word_count / max_word_count`
+- Ratio of Counts is calculated, `R = min_word_count / max_word_count`.
 ![image](https://drive.google.com/uc?export=view&id=1fL5fvuGzKmP6SewcG2I1ImEtHSsrpqV7)
 
 11. **Unique Word Count Ratio without Stop words**
 For each question pair,
 - Stop words are removed.
 - Unique Word Count of both questions are calculated.
-- Ratio of Counts is calculated, `R = min_word_count / max_word_count`
+- Ratio of Counts is calculated, `R = min_word_count / max_word_count`.
 ![image](https://drive.google.com/uc?export=view&id=1sP51ncq1yzsM43Z22YyI9VyDPXnWA2TX)
 
 12. **Same Start Word**
