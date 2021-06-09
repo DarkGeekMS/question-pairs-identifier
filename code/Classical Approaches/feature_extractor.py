@@ -13,13 +13,13 @@ class FeatureExtractor:
         self.extract(table, do_data)
 
         # # visualize
-        # pca = PCA(n_components=2)
-        # X_2d = pca.fit_transform(self.X)
-        # X_2d_pos = X_2d[self.y == 1]
-        # X_2d_neg = X_2d[self.y == 0]
-        # plt.scatter(*zip(*X_2d_pos), alpha=0.5)
-        # plt.scatter(*zip(*X_2d_neg), alpha=0.5)
-        # plt.show()
+        pca = PCA(n_components=2)
+        X_2d = pca.fit_transform(self.X)
+        X_2d_pos = X_2d[self.y == 1]
+        X_2d_neg = X_2d[self.y == 0]
+        plt.scatter(*zip(*X_2d_pos), alpha=0.5)
+        plt.scatter(*zip(*X_2d_neg), alpha=0.5)
+        plt.savefig('./plots/extractor_output_PCA.png')
 
         
     def extract(self, table, do_data):

@@ -130,4 +130,5 @@ We applied a `Sequential Backward Selection` Approach to select the best represe
 
 
 ## Visualization
-We fitted a PCA model with two components for the sake of visualization.
+We fitted a PCA model with two components for the sake of visualizing the extractor ouput.
+![image](https://drive.google.com/uc?export=view&id=1DEExEsIRtKMkUvNoHccVVR6-xnS3n_uq)
