@@ -104,7 +104,6 @@ class Trainer():
             input_ids_q2 = batch['q2']['input_ids'].to(self.device)
             attention_mask_q2 = batch['q2']['attention_mask'].to(self.device)
 
-            print(input_ids_q1.size())
             y_true = batch['label'].to(self.device)
             
             self.optimizer.zero_grad()

@@ -20,7 +20,6 @@ class BertRegressor(nn.Module):
         if model_type == 'roberta-base':
             self.bert = RobertaModel.from_pretrained('roberta-base') 
 
-        print(self.bert)
         self.linear = nn.Linear(768, 2, bias=True)
         self.softmax = nn.Softmax(dim = 1)
         self.dropout = nn.Dropout(0.1)
@@ -56,7 +55,6 @@ class LSTMClassifier(nn.Module):
     
     def forward(self, input_ids_q1, input_ids_q2, attention_mask_q1, attention_mask_q2):
         q1,_ = self.BiLSTM(input_ids_q1)
-        print(x.size())
         return x
 
 
