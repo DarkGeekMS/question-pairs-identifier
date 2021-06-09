@@ -37,9 +37,9 @@ For each question pair,
 - Shared words are extracted.
 - TfIdf feature is extracted from the shared words only.
 - This allows not to be biased to the common words that are more likely to be shared, because of their commonalities.
-![image](https://drive.google.com/uc?export=view&id=<1gx48hlaADSsPx-Jl9MjQmbCSWgWPZaz8>)
-<!-- https://drive.google.com/file/d/1gx48hlaADSsPx-Jl9MjQmbCSWgWPZaz8/view?usp=sharing -->
-
+![image](https://drive.google.com/uc?export=view&id=1gx48hlaADSsPx-Jl9MjQmbCSWgWPZaz8)
+<!-- https://drive.google.com/file/d/1gx48hlaADSsPx-Jl9MjQmbCSWgWPZaz8/view?usp=sharing
+https://drive.google.com/file/d/1gx48hlaADSsPx-Jl9MjQmbCSWgWPZaz8/view?usp=sharing -->
 2. **Word Match Share**
 For each question pair,
 - Stop words are removed.
