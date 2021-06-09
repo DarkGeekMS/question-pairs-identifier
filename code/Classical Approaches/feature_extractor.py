@@ -27,21 +27,21 @@ class FeatureExtractor:
         self.table = table.dropna()
         self.X = pd.DataFrame()
 
-###
-        self.X['tfidf_word_match'] = self.tfidf()
-        self.plot_feature(self.X['tfidf_word_match'], 'tfidf_word_match')
+
+        # self.X['tfidf_word_match'] = self.tfidf()
+        # self.plot_feature(self.X['tfidf_word_match'], 'tfidf_word_match')
 
         self.X['word_match'] = self.table.apply(self.word_match_share, axis=1, raw=True)
         self.plot_feature(self.X['word_match'], 'word_match')
-###
-        self.X['jaccard'] = self.table.apply(self.jaccard, axis=1, raw=True)
-        self.plot_feature(self.X['jaccard'], 'jaccard')
+
+        # self.X['jaccard'] = self.table.apply(self.jaccard, axis=1, raw=True)
+        # self.plot_feature(self.X['jaccard'], 'jaccard')
 
         self.X['wc_diff'] = self.table.apply(self.wc_diff, axis=1, raw=True)
         self.plot_feature(self.X['wc_diff'], 'wc_diff')
-####
-        self.X['common_words'] = self.table.apply(self.common_words, axis=1, raw=True)
-        self.plot_feature(self.X['common_words'], 'common_words')
+
+        # self.X['common_words'] = self.table.apply(self.common_words, axis=1, raw=True)
+        # self.plot_feature(self.X['common_words'], 'common_words')
 
         self.X['total_unique_words'] = self.table.apply(self.total_unique_words, axis=1, raw=True)
         self.plot_feature(self.X['total_unique_words'], 'total_unique_words')
@@ -58,9 +58,8 @@ class FeatureExtractor:
         self.X['wc_diff_unique_stop'] = self.table.apply(self.wc_diff_unique_stop, axis=1, raw=True)
         self.plot_feature(self.X['wc_diff_unique_stop'], 'wc_diff_unique_stop')
 
-###
-        self.X['wc_ratio_unique_stop'] = self.table.apply(self.wc_ratio_unique_stop, axis=1, raw=True)
-        self.plot_feature(self.X['wc_ratio_unique_stop'], 'wc_ratio_unique_stop')
+        # self.X['wc_ratio_unique_stop'] = self.table.apply(self.wc_ratio_unique_stop, axis=1, raw=True)
+        # self.plot_feature(self.X['wc_ratio_unique_stop'], 'wc_ratio_unique_stop')
 
         self.X['same_start_word'] = self.table.apply(self.same_start_word, axis=1, raw=True)
         self.plot_feature(self.X['same_start_word'], 'same_start_word')
