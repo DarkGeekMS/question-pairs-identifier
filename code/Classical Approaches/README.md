@@ -38,7 +38,7 @@ For each question pair,
 - TfIdf feature is extracted from the shared words only.
 - This allows not to be biased to the common words that are more likely to be shared, because of their commonalities.
 ![image](https://drive.google.com/uc?export=view&id=1gx48hlaADSsPx-Jl9MjQmbCSWgWPZaz8)
-s
+
 2. **Word Match Share**
 For each question pair,
 - Stop words are removed.
