@@ -20,8 +20,7 @@ python main.py --do_data
 ```
 5. Train the classifier
 ```bash
-    python main.py\ 
-    -classifier <classifier version (naive_bayes, logistic_regression, xgboost)>
+    python main.py -classifier <classifier version (naive_bayes, logistic_regression, xgboost)>
 ```
 
 e.g. to train `naive_bayes` classifier

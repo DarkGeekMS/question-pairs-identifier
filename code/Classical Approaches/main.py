@@ -1,5 +1,5 @@
 from feature_extractor import FeatureExtractor
-from classical_classifiers import NBayesClassifier, LogisticRegressionClassifier, XGBoostClassifier
+from classical_classifiers import NBayesClassifier, LogisticRegressionClassifier, XGBoostClassifier, GBoostClassifier
 import numpy as np
 import argparse
 import pandas as pd
@@ -12,6 +12,7 @@ def main(classifier, do_data):
     if do_data:
         # read the data
         table = pd.read_csv('../dataset/train.csv')
+
         # extract the features
         extractor = FeatureExtractor(table, do_data)
         # save the extractor
@@ -28,7 +29,7 @@ def main(classifier, do_data):
             NBayes_classifier = NBayesClassifier(xtrain = extractor.xtrain, ytrain = extractor.ytrain)
             print('vaidation accuracy of Naive Bayes classifier = ', NBayes_classifier.classifier.get_accuracy(extractor.xvalid, extractor.yvalid))
             # save the classifier
-            with open('classifer.pkl', 'wb') as classifier_file:
+            with open('classifier.pkl', 'wb') as classifier_file:
                 pickle.dump(NBayes_classifier, classifier_file)
 
         # Logistic Regression classifiers 
@@ -36,7 +37,7 @@ def main(classifier, do_data):
             LogReg_classifier = LogisticRegressionClassifier(xtrain = extractor.xtrain, ytrain = extractor.ytrain)
             print('vaidation accuracy of Logistic Regression classifier = ', LogReg_classifier.classifier.get_accuracy(extractor.xvalid, extractor.yvalid))
             # save the classifier
-            with open('classifer.pkl', 'wb') as classifier_file:
+            with open('classifier.pkl', 'wb') as classifier_file:
                 pickle.dump(LogReg_classifier, classifier_file)     
 
         # XGBOOST classifiers 
@@ -44,9 +45,17 @@ def main(classifier, do_data):
             xgb_classifier = XGBoostClassifier(xtrain = extractor.xtrain, ytrain = extractor.ytrain)
             print('vaidation accuracy of XGBoost classifier = ', xgb_classifier.classifier.get_accuracy(extractor.xvalid, extractor.yvalid))
             # save the classifier
-            with open('classifer.pkl', 'wb') as classifier_file:
+            with open('classifier.pkl', 'wb') as classifier_file:
                 pickle.dump(xgb_classifier, classifier_file)    
-    
+
+        # GBOOST classifiers 
+        elif classifier == 'gboost':
+            gb_classifier = GBoostClassifier(xtrain = extractor.xtrain, ytrain = extractor.ytrain)
+            print('vaidation accuracy of GBoost classifier = ', gb_classifier.classifier.get_accuracy(extractor.xvalid, extractor.yvalid))
+            # save the classifier
+            with open('classifier.pkl', 'wb') as classifier_file:
+                pickle.dump(gb_classifier, classifier_file)     
+
         else:
             print('unsupported classifier, choose one classifier from(logistic_regression, naive_bayes, xgboost)...')
 

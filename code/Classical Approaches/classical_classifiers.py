@@ -1,6 +1,7 @@
 from sklearn.model_selection import GridSearchCV
 from sklearn.linear_model import LogisticRegression
 from sklearn.naive_bayes import MultinomialNB
+from sklearn.ensemble import GradientBoostingClassifier
 from sklearn import preprocessing, decomposition, model_selection, metrics, pipeline
 import numpy as np
 import xgboost as xgb
@@ -28,12 +29,12 @@ class GridSearch:
         for param_name in sorted(self.param_grid.keys()):
             print("\t%s: %r" % (param_name, self.best_parameters[param_name]))
     
-    def predict(self,x):
+    def predict_prob(self,x):
         predictions = self.model.predict_proba(x)
         return predictions
     
     def get_accuracy(self, x, ytrue):
-        yhat = self.predict(x)
+        yhat = self.predict_prob(x)
         correct = 0
         for i in range(len(yhat)):
             if(np.argmax(yhat[i]) == ytrue[i]):
@@ -73,7 +74,22 @@ class XGBoostClassifier:
         self.param_grid =  {self.model_name + '__nthread':[4], #when use hyperthread, xgboost may become slower
                             self.model_name + '__objective':['binary:logistic'],
                             self.model_name + '__learning_rate': [0.05], #so called `eta` value
-                            self.model_name + '__max_depth': [6],
+                            self.model_name + '__max_depth': [2],
+                            self.model_name + '__n_estimators': [1000],
                             self.model_name + '__eval_metric': ['logloss']
+                            }
+        self.classifier = GridSearch(classifier_pipeline = self.pipeline, param_grid = self.param_grid, xtrain = xtrain, ytrain = ytrain)
+
+
+# GBoost classifier
+class GBoostClassifier:
+    def __init__(self, xtrain, ytrain):
+        self.model_name = 'gboost'
+        self.model = GradientBoostingClassifier(random_state=0)
+        self.pipeline = pipeline.Pipeline([(self.model_name, self.model)])
+        self.param_grid =  {
+                            self.model_name + '__n_estimators': [100],
+                            self.model_name + '__learning_rate' : [1.0],
+                            self.model_name + '__max_depth' : [1]
                             }
         self.classifier = GridSearch(classifier_pipeline = self.pipeline, param_grid = self.param_grid, xtrain = xtrain, ytrain = ytrain)
