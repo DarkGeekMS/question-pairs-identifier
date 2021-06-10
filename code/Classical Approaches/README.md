@@ -1,6 +1,11 @@
+# Introduction and Problem
+Quora is an online platform to connect with people, ask questions and get answers. With over 100 million people visit Quora every month, there must be a huge amount of duplicate questions that have the same words or carry the same meaning. This can be very confusing for the answer seekers and results in a longer search time.  The huge amount of questions on Quora urges the usage of Big Data Analytics techniques. Our systemoffers a way to classify questions based on their content, inorder to relate duplicate questions with each others for easier and quicker search.
+
+# Dataset
+We are going to use the dataset from [Quora Question Pairs](https://www.kaggle.com/c/quora-question-pairs) Kaggle’s competition.The dataset consists of questions pairs with labels for whether they are related or not.
+
 # Dataset Analysis
 - Number of question pairs: 404290
-
 - Number of unique questions: 537933
 - Number of questions that appear multiple times: 111780
 - Histogram shows that most of the questions are not duplicated:
