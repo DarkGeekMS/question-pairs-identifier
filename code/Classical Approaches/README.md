@@ -30,12 +30,19 @@
 3. Install imblearn.
 ```bash
 pip install imblearn
+pip install wordcloud
 ```
-4. extract features from data
+
+4. Run the analysis part
+```bash
+python analysis.py
+```
+
+5. extract features from data
 ```bash
 python main.py --do_data
 ```
-5. Train the classifier
+6. Train the classifier
 ```bash
 python main.py -classifier <classifier version (naive_bayes, logistic_regression, xgboost)>
 ```
