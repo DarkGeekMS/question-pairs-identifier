@@ -1,3 +1,20 @@
+# Dataset Analysis
+- Number of question pairs: 404290
+
+- Number of unique questions: 537933
+- Number of questions that appear multiple times: 111780
+- Histogram shows that most of the questions are not duplicated:
+
+![image](https://drive.google.com/uc?export=view&id=1PPl_K65m4oGMML0sEHGLOVgir_Fr_wHb)
+- Data is unbalanced as Duplicate pairs percentage: 36.92%, Non-Duplicate pairs percentage: 63.08% 
+- We re-balanced the dataset by re-sample more samples from duplicate pairs.
+- Data has words that are repeated frequently in the questions and are not stop words.
+- Here's a word cloud graph representing the most frequent words:
+
+![image](https://drive.google.com/uc?export=view&id=1HyLvXBQKscZxTqvfahWfO8RIz5T33RoT)
+- We may need TfIdf feature to caption these words and not to be biased to them.
+
+
 # Feature extractor and Classical classifiers
 
 # Available Classifiers
