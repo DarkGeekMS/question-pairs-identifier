@@ -13,7 +13,9 @@
 
 ![image](https://drive.google.com/uc?export=view&id=1HyLvXBQKscZxTqvfahWfO8RIz5T33RoT)
 - We may need TfIdf feature to caption these words and not to be biased to them.
-
+- From the word cloud above, it seems like most of the collected questions are from Indian people, as India is the most common word. This may indicate that our features may be biased to Indian people.
+- Words `Best` and `Way` are frequent, which means that many questions are asking about best way to do something.
+- Word `Difference` is frequent as well, which means that many questions are asking about differences between things.
 
 # Feature extractor and Classical classifiers
 
