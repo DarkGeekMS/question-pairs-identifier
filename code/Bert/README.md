@@ -10,8 +10,7 @@ This directory contains different versions of bert used as a text processor
 
 
 # Structure
-![image](https://drive.google.com/uc?export=view&id=1bU5bNEs829rzgqoqym5CVl6b7RKjWOZD)
-
+![image](https://drive.google.com/uc?export=view&id=1wGHiOvXVsZjgA4hWOLOOjo-kyG7FeNZY)
 
 
 # To Train 
