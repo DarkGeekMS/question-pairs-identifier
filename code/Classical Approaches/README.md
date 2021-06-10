@@ -155,6 +155,6 @@ We splitted the dataset as `90% training` and `10% validation`, and here are the
 - XGBoost has the best performance, while Naive Bayes has the least.
 - It's not a linearly-separable problem as shown in features plots and higher performance in non-linear classifiers, such as XGBoost.
 - Still not a very good performance, because this a complex problem that may need Advanced Deep Learning Techniques. This is what is said bu Qoura itself in the competition description:
-`Currently, Quora uses a Random Forest model to identify duplicate questions. In this competition, Kagglers are challenged to tackle this natural language processing problem by applying advanced techniques to classify whether question pairs are duplicates or not.`
+`In this competition, Kagglers are challenged to tackle this natural language processing problem by applying advanced techniques to classify whether question pairs are duplicates or not.`
 
 
