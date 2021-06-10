@@ -25,9 +25,10 @@ We are going to use the dataset from [Quora Question Pairs](https://www.kaggle.c
 # Feature extractor and Classical classifiers
 
 # Available Classifiers
-- Naive Bayes
-- Logisitic Regression
-- XGBoost
+- Naive Bayes Classifier
+- Logisitic Regression Classifier
+- XGBoost Classifier
+- Gradient Boosting Classifier
 
 # To Train 
 
