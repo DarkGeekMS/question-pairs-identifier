@@ -92,7 +92,7 @@ For each question pair, absolute difference between number of words in questions
 5. **Word Count Ratio**
 For each question pair,
 - Word Count of both questions are calculated.
-- Ratio of Counts is calculated, `R = min_word_count / max_word_count`.
+- Ratio of Counts is calculated, `R = first_question_word_count / second_question_word_count`.
 ![image](https://drive.google.com/uc?export=view&id=15sLwKbHN-cfSo_NfX2OaMCsH8XIpZuJW)
 
 6. **Unique Word Count Difference**
