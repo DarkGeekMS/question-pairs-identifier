@@ -81,11 +81,6 @@ For each question pair, number of shared words is calculated.
 For each question pair, number of unique words from both questions is calculated.
 ![image](https://drive.google.com/uc?export=view&id=1K02a3R0tYjEEVSKLYcOJjOZVnqIP8wek)
 
-<!-- 8. **Unique Word Count without Stop words**
-For each question pair,
-- Stop words are removed.
-- Number of unique words from both questions is calculated. -->
-
 10. **Unique Word Count Ratio**
 For each question pair,
 - Unique Word Count of both questions are calculated.
@@ -135,6 +130,7 @@ We splitted the dataset as `90% training` and `10% validation`, and here are the
 - Validation Accuracy: 58.8%
 - Validation AUC: 0.612
 - ROC Curve:
+
 ![image](https://drive.google.com/uc?export=view&id=1qTjlJ4mFZwLCnEX12Uj5NetJRR8NjkLk)
 
 2. **Logistic Regression**
@@ -142,6 +138,7 @@ We splitted the dataset as `90% training` and `10% validation`, and here are the
 - Validation Accuracy: 70.46%
 - Validation AUC: 0.783
 - ROC Curve:
+
 ![image](https://drive.google.com/uc?export=view&id=1AKCw3SLTTqNAPcdxORVm7MdxpzEWVvRM)
 
 3. **XGBoost**
@@ -149,6 +146,7 @@ We splitted the dataset as `90% training` and `10% validation`, and here are the
 - Validation Accuracy: 78.32%
 - Validation AUC: 0.874
 - ROC Curve:
+
 ![image](https://drive.google.com/uc?export=view&id=19l2w2mZ3k2UcLD9heGJLgRPq9kRQ-uAM)
 
 ## Notes on Classical Approaches
@@ -156,5 +154,51 @@ We splitted the dataset as `90% training` and `10% validation`, and here are the
 - It's not a linearly-separable problem as shown in features plots and higher performance in non-linear classifiers, such as XGBoost.
 - Still not a very good performance, because this a complex problem that may need Advanced Deep Learning Techniques. This is what is said bu Qoura itself in the competition description:
 `In this competition, Kagglers are challenged to tackle this natural language processing problem by applying advanced techniques to classify whether question pairs are duplicates or not.`
+
+# Question Matching
+This Module is designed to 
+- get the most 5 matching questions from the dataset to the user's question.
+- provide the user with a numerical value indicating how trendy his question is based on the number of similar questions.
+
+### Here are some results:
+1. Sample 1
+- input question: `what are the names of the states of america?`
+- Results: 
+Most 5 matching questions:
+```
+What are the most common Last names in America?
+Who was the all time best President of the United States of America?
+What are the requirements to become president of the United States of America?
+Why do you want to become the president of the United States of America?
+What are some of the greatest achievements of the United States of America?
+```
+Trend Value: `125`
+
+2. Sample 2
+- input question: `what is the definition of quantum entanglement?`
+- Results: 
+Most 5 matching questions:
+```
+What is quantum entanglement? What is mathematics behind quantum entanglement?
+Is it possible to transmit power wirelessly through quantum entanglement?
+What is the mathematics behind quantum entanglement?
+What is quantum entanglement?
+What are the proofs of quantum entanglement?
+```
+Trend Value: `263`
+
+3. Sample 3
+- input question: `is it a new world war?`
+- Results: 
+Most 5 matching questions:
+```
+How close are we to world war?
+Should the world be worried about the new "Islamic State" caliphate?
+Will there be a third World War?
+Will there be another big World War? If so, what will it be like?
+What would the world do if India and Pakistan go to war?
+```
+Trend Value: `272`
+
 
 

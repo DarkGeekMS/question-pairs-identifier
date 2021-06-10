@@ -8,12 +8,15 @@ def main():
     with open('classifier.pkl', 'rb') as classifier_file:
         classifier = pickle.load(classifier_file)
 
-    question = "what are the names of the states of america?"
+    # question = "what are the names of the states of america?"
+    print('please enter the question')
+    question = input()
     features = extractor.pair_question(question)
     logits = classifier.classifier.model.predict_proba(features)[:,1]
     similarities_count = len(logits[logits>0.5])
     match_indices = (-logits).argsort()[:5]
 
+    print('top most relevant questions:')
     for i in match_indices:
         print(extractor.questions[i])
     
