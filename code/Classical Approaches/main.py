@@ -28,6 +28,8 @@ def main(classifier, do_data):
         if classifier == 'naive_bayes':
             NBayes_classifier = NBayesClassifier(xtrain = extractor.xtrain, ytrain = extractor.ytrain)
             print('vaidation accuracy of Naive Bayes classifier = ', NBayes_classifier.classifier.get_accuracy(extractor.xvalid, extractor.yvalid))
+            NBayes_classifier.classifier.plot_roc_curve(extractor.xvalid, extractor.yvalid)
+            print('AUC of Naive Bayes classifier = ', NBayes_classifier.classifier.auc)
             # save the classifier
             with open('classifier.pkl', 'wb') as classifier_file:
                 pickle.dump(NBayes_classifier, classifier_file)
@@ -36,6 +38,8 @@ def main(classifier, do_data):
         elif classifier == 'logistic_regression':
             LogReg_classifier = LogisticRegressionClassifier(xtrain = extractor.xtrain, ytrain = extractor.ytrain)
             print('vaidation accuracy of Logistic Regression classifier = ', LogReg_classifier.classifier.get_accuracy(extractor.xvalid, extractor.yvalid))
+            LogReg_classifier.classifier.plot_roc_curve(extractor.xvalid, extractor.yvalid)
+            print('AUC of Logistic Regression classifier = ', LogReg_classifier.classifier.auc)
             # save the classifier
             with open('classifier.pkl', 'wb') as classifier_file:
                 pickle.dump(LogReg_classifier, classifier_file)     
@@ -44,6 +48,8 @@ def main(classifier, do_data):
         elif classifier == 'xgboost':
             xgb_classifier = XGBoostClassifier(xtrain = extractor.xtrain, ytrain = extractor.ytrain)
             print('vaidation accuracy of XGBoost classifier = ', xgb_classifier.classifier.get_accuracy(extractor.xvalid, extractor.yvalid))
+            xgb_classifier.classifier.plot_roc_curve(extractor.xvalid, extractor.yvalid)
+            print('AUC of XGBoost classifier = ', xgb_classifier.classifier.auc)
             # save the classifier
             with open('classifier.pkl', 'wb') as classifier_file:
                 pickle.dump(xgb_classifier, classifier_file)    
@@ -52,6 +58,8 @@ def main(classifier, do_data):
         elif classifier == 'gboost':
             gb_classifier = GBoostClassifier(xtrain = extractor.xtrain, ytrain = extractor.ytrain)
             print('vaidation accuracy of GBoost classifier = ', gb_classifier.classifier.get_accuracy(extractor.xvalid, extractor.yvalid))
+            gb_classifier.classifier.plot_roc_curve(extractor.xvalid, extractor.yvalid)
+            print('AUC of GBoost classifier = ', gb_classifier.classifier.auc)
             # save the classifier
             with open('classifier.pkl', 'wb') as classifier_file:
                 pickle.dump(gb_classifier, classifier_file)     

@@ -5,6 +5,9 @@ from sklearn.ensemble import GradientBoostingClassifier
 from sklearn import preprocessing, decomposition, model_selection, metrics, pipeline
 import numpy as np
 import xgboost as xgb
+from sklearn.metrics import roc_curve, roc_auc_score
+import matplotlib.pyplot as plt
+
 
 class GridSearch:
     def __init__(self, classifier_pipeline, param_grid, xtrain, ytrain):
@@ -40,6 +43,20 @@ class GridSearch:
             if(np.argmax(yhat[i]) == ytrue[i]):
                 correct += 1
         return correct/len(yhat)
+
+    def get_roc_auc(self, x, ytrue):
+        yhat = self.predict_prob(x)
+        self.fpr, self.tpr, self.thresholds = roc_curve(ytrue, yhat[:,1])
+        self.auc = roc_auc_score(ytrue, yhat[:,1])
+
+    def plot_roc_curve(self, x, ytrue):
+        self.get_roc_auc(x, ytrue)
+        plt.plot(self.fpr, self.tpr, linestyle='--')
+        # axis labels
+        plt.xlabel('False Positive Rate')
+        plt.ylabel('True Positive Rate')
+        # show the plot
+        plt.savefig('./plots/roc_curve.png')
 
 
 # Naive Bayes classifier

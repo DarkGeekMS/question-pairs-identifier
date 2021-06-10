@@ -12,7 +12,7 @@ Here we represent our feature extractor and classical classifiers
 
 3. Install imblearn.
 ```bash
-    pip install imblearn
+pip install imblearn
 ```
 4. extract features from data
 ```bash
@@ -20,12 +20,12 @@ python main.py --do_data
 ```
 5. Train the classifier
 ```bash
-    python main.py -classifier <classifier version (naive_bayes, logistic_regression, xgboost)>
+python main.py -classifier <classifier version (naive_bayes, logistic_regression, xgboost)>
 ```
 
 e.g. to train `naive_bayes` classifier
 ```bash
-    python main.py -classifier naive_bayes
+python main.py -classifier naive_bayes
 ```
 
 # Feature Extractor Details
@@ -128,6 +128,25 @@ We applied a `Sequential Backward Selection` Approach to select the best represe
 - Character Count Ratio
 
 
-## Visualization
-We fitted a PCA model with two components for the sake of visualizing the extractor ouput.
-![image](https://drive.google.com/uc?export=view&id=1DEExEsIRtKMkUvNoHccVVR6-xnS3n_uq)
+## Classifiers
+We splitted the dataset as `90% training` and `10% validation`, and here are the results
+- **Naive Bayes**
+Training Accuracy: 59%
+Validation Accuracy: 58.8%
+Validation AUC: 0.612
+ROC Curve:
+![image](https://drive.google.com/uc?export=view&id=1qTjlJ4mFZwLCnEX12Uj5NetJRR8NjkLk)
+
+- **Logistic Regression**
+Training Accuracy: 70.27%
+Validation Accuracy: 70.46%
+Validation AUC: 0.783
+ROC Curve:
+![image](https://drive.google.com/uc?export=view&id=1AKCw3SLTTqNAPcdxORVm7MdxpzEWVvRM)
+
+- **XGBoost**
+Training Accuracy: 78.26%
+Validation Accuracy: 78.32%
+Validation AUC: 0.874
+ROC Curve:
+![image](https://drive.google.com/uc?export=view&id=19l2w2mZ3k2UcLD9heGJLgRPq9kRQ-uAM)
