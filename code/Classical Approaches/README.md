@@ -116,7 +116,7 @@ For each question pair, number of unique words from both questions is calculated
 10. **Unique Word Count Ratio**
 For each question pair,
 - Unique Word Count of both questions are calculated.
-- Ratio of Counts is calculated, `R = min_word_count / max_word_count`.
+- Ratio of Counts is calculated, `R = first_question_word_count / second_question_word_count`.
 ![image](https://drive.google.com/uc?export=view&id=1fL5fvuGzKmP6SewcG2I1ImEtHSsrpqV7)
 
 11. **Unique Word Count Ratio without Stop words**
