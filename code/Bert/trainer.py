@@ -3,7 +3,7 @@ import torch
 import os
 import torch.optim.lr_scheduler as lr_scheduler
 import torch.nn as nn
-from model import BertRegressor, LSTMClassifier
+from model import BertRegressor
 from dataset import do_data, load_data, TextToAttrDataset
 from loss import MSELoss
 from torch.utils.data import DataLoader
@@ -34,7 +34,7 @@ class Trainer():
 
         # load model weights
         self.model = self.checkpoint_tracker.load_checkpoint(self.resume)
-        # self.model = LSTMClassifier()
+
         # dataset
         if self.do_data == True:
             train_encodings_1, train_encodings_2, train_labels, val_encodings_1, val_encodings_2, val_labels = do_data(csv_file = 'dataset/train.csv', model_type = self.architecture)
@@ -58,9 +58,6 @@ class Trainer():
         self.loss_criterion = nn.CrossEntropyLoss()
 
         
-    
-
-
     def train(self, validate_step):
         '''
         Function defining the entire training loop
@@ -125,8 +122,6 @@ class Trainer():
 
         self.training_epoch_loss = self.training_epoch_loss / len(self.train_loader)
 
-
-
     ###############
     # validate 
     def validation_epoch(self):
@@ -140,11 +135,13 @@ class Trainer():
         batches_accuracies = []
         pbar = tqdm(self.validation_loader)
         for batch in pbar:
-            input_ids = batch['input_ids'].to(self.device)
-            attention_mask = batch['attention_mask'].to(self.device)
-            y_true = batch['labels'].to(self.device)
-
-            y_hat = self.model(input_ids, attention_mask=attention_mask)
+            input_ids_q1 = batch['q1']['input_ids'].to(self.device)
+            attention_mask_q1 = batch['q1']['attention_mask'].to(self.device)
+            input_ids_q2 = batch['q2']['input_ids'].to(self.device)
+            attention_mask_q2 = batch['q2']['attention_mask'].to(self.device)
+            y_true = batch['label'].to(self.device)
+            
+            y_hat = self.model(input_ids_q1, input_ids_q2, attention_mask_q1=attention_mask_q1, attention_mask_q2=attention_mask_q2)
 
             if len(list(y_hat.size())) < 2:
                 y_hat = torch.unsqueeze(y_hat, 0)

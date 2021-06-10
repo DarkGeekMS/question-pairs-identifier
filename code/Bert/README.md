@@ -12,7 +12,7 @@ This directory contains different versions of bert used as a text processor
 
 # To Train 
 
-1. Download [Pseudo-text dataset](https://drive.google.com/file/d/1Pw7myk-tj5CDEakHeRqvrL3Pj6Ap335Z/view?usp=sharing) auto-generated from random auto-generated attributes from Scaled Attributes.
+1. Download [Quora Question Pairs Dataset](https://www.kaggle.com/c/quora-question-pairs/data?select=train.csv.zip).
 
 2. Place it into `dataset` directory.
 
@@ -44,19 +44,5 @@ e.g. to train `bert-base-uncased` version
 5. To complete training from the last training time, add `--resume_from_last_trial` option to the command in (*4*).
 
 
-
-# To use it as a sub-module in your work
-1. Download weights and config file from [Trained-Bert](https://drive.google.com/drive/folders/1fCu8Lat0IN2FN8hF71ygUWTGEIqXJIR9?usp=sharing) 
-
-2. Unzip it and place its contents into `checkpoints` directory.
-
-3. Import `TextProcessor` module from `inference.py` fils, and use `predict` function to predict labels.
-
-e.g. to use distilbert version in the parent directory of `Bert` folder
-```python
-from Bert.inference import TextProcessor
-processor = TextProcessor('distilbert-base-uncased')
-print(processor.predict('a guy with long hair and sunglasses.'))
-```
 
 
