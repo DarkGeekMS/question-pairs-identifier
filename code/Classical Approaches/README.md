@@ -1,4 +1,4 @@
-Here we represent our feature extractor and classical classifiers
+# Feature extractor and Classical classifiers
 
 # Available Classifiers
 - Naive Bayes
@@ -130,23 +130,31 @@ We applied a `Sequential Backward Selection` Approach to select the best represe
 
 ## Classifiers
 We splitted the dataset as `90% training` and `10% validation`, and here are the results
-- **Naive Bayes**
-Training Accuracy: 59%
-Validation Accuracy: 58.8%
-Validation AUC: 0.612
-ROC Curve:
+1. **Naive Bayes**
+- Training Accuracy: 59%
+- Validation Accuracy: 58.8%
+- Validation AUC: 0.612
+- ROC Curve:
 ![image](https://drive.google.com/uc?export=view&id=1qTjlJ4mFZwLCnEX12Uj5NetJRR8NjkLk)
 
-- **Logistic Regression**
-Training Accuracy: 70.27%
-Validation Accuracy: 70.46%
-Validation AUC: 0.783
-ROC Curve:
+2. **Logistic Regression**
+- Training Accuracy: 70.27%
+- Validation Accuracy: 70.46%
+- Validation AUC: 0.783
+- ROC Curve:
 ![image](https://drive.google.com/uc?export=view&id=1AKCw3SLTTqNAPcdxORVm7MdxpzEWVvRM)
 
-- **XGBoost**
-Training Accuracy: 78.26%
-Validation Accuracy: 78.32%
-Validation AUC: 0.874
-ROC Curve:
+3. **XGBoost**
+- Training Accuracy: 78.26%
+- Validation Accuracy: 78.32%
+- Validation AUC: 0.874
+- ROC Curve:
 ![image](https://drive.google.com/uc?export=view&id=19l2w2mZ3k2UcLD9heGJLgRPq9kRQ-uAM)
+
+## Notes on Classical Approaches
+- XGBoost has the best performance, while Naive Bayes has the least.
+- It's not a linearly-separable problem as shown in features plots and higher performance in non-linear classifiers, such as XGBoost.
+- Still not a very good performance, because this a complex problem that may need Advanced Deep Learning Techniques. This is what is said bu Qoura itself in the competition description:
+`Currently, Quora uses a Random Forest model to identify duplicate questions. In this competition, Kagglers are challenged to tackle this natural language processing problem by applying advanced techniques to classify whether question pairs are duplicates or not.`
+
+
